@@ -2,15 +2,16 @@
   "name": "react-express",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/server/server.js",
+  "main": "build/server/server.js",
   "bin": {
     "react-express": "dist/index.js"
   },
   "scripts": {
     "start": "node .",
-    "dev": "nodemon .",
+    "dev": "nodemon dist/server/server.js",
     "serve": "node serve.js",
-    "build": "webpack",
+    "build": "webpack build --env production",
+    "build-dev": "webpack build --env development",
     "watch": "webpack --watch"
   },
   "keywords": [],
