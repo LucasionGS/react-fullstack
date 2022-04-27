@@ -1,7 +1,7 @@
 const Path = require("path");
 const { getFiles } = require("./getFiles");
 const fs = require("fs");
-
+const nodeExternals = require("webpack-node-externals");
 module.exports = (env) => {
   const {
     production,
@@ -23,7 +23,7 @@ module.exports = (env) => {
 
     module: {
       rules: [
-        { test: /\.ts?$/, use: "ts-loader", exclude: /node_modules/ },
+        { test: /\.ts$/, use: "ts-loader", exclude: /node_modules/ },
       ],
     },
 
@@ -31,5 +31,7 @@ module.exports = (env) => {
     resolve: {
       extensions: [".ts", ".tsx", ".js", ".jsx"],
     },
+
+    externals: [nodeExternals()]
   });
 }
